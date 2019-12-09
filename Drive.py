@@ -13,7 +13,7 @@ sio = socketio.Server()
 app = Flask(__name__) #'__main__'
 speed_limit = 10
 def img_preprocess(img):
-    img = img[60:135,:,:]
+    img = img[60:140,:,:]
     img = cv2.cvtColor(img, cv2.COLOR_RGB2YUV)
     img = cv2.GaussianBlur(img,  (3, 3), 0)
     img = cv2.resize(img, (200, 66))
