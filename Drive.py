@@ -37,17 +37,17 @@ def telemetry(sid, data):
  
 @sio.on('connect')
 def connect(sid, environ):
-    print('Connected')
-    send_control(0, 0)
+	print('Connected')
+	send_control(0, 0)
  
 def send_control(steering_angle, throttle):
-    sio.emit('steer', data = {
-        'steering_angle': steering_angle.__str__(),
-        'throttle': throttle.__str__()
-    })
+	sio.emit('steer', data = {
+	'steering_angle': steering_angle.__str__(),
+	'throttle': throttle.__str__()
+	})
  
  
 if __name__ == '__main__':
-    model = load_model('model.h5')
-    app = socketio.Middleware(sio, app)
-    eventlet.wsgi.server(eventlet.listen(('', 4567)), app)
+	model = load_model('model.h5')
+	app = socketio.Middleware(sio, app)
+	eventlet.wsgi.server(eventlet.listen(('', 4567)), app)
